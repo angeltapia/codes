@@ -6,7 +6,7 @@
 			$cnx=Conexion::getInstancia();
 
 			$resultados   = 12;
-			$total_cuentas=$cnx->query("SELECT count(idcuenta) as total from cuenta where idusuario='".$_SESSION['mg_idusuario']."' ");
+			$total_cuentas=$cnx->query("SELECT count(idcuenta) as total from c where iduser='".$_SESSION['idusuario']."' ");
 
 			$filatotal=$cnx->fetch($total_cuentas);
 
@@ -20,12 +20,12 @@
 
 			$sql="SELECT a.idcuenta,a.nombrecta,a.montoini,a.iddivisa,b.iddivisa,
 			b.simbolo from cuenta as a inner join divisa as b on a.iddivisa=b.iddivisa 
-			where  a.idusuario = b.idusuario and a.idusuario='".$_SESSION['mg_idusuario']."' order by a.idcuenta DESC LIMIT $iniciolimit, $resultados ";
+			where  a.iduser = b.iduser and a.iduser='".$_SESSION['idusuario']."' order by a.idcuenta DESC LIMIT $iniciolimit, $resultados ";
 
 			$resultSet=$cnx->query($sql);
 			
 			while($fila=$cnx->fetch($resultSet)){
-				$sql2="SELECT sum(monto) as importes from gasto where idcuenta='".$fila['idcuenta']."' and idusuario='".$_SESSION['mg_idusuario']."' ";
+				$sql2="SELECT sum(monto) as importes from gast where idcuenta='".$fila['idcuenta']."' and iduser='".$_SESSION['idusuario']."' ";
 
 				$resultSet2=$cnx->query($sql2);
 
