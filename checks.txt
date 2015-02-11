@@ -45,7 +45,7 @@ function eliminar_registro(pag,opcion)
 		{
 			for(i=0;i<1;i++)
 			{
-				if(elementos.checked==false) alert("Debe seleccionar un registro"); //divAlert("bnpSite",,true,"");
+				if(elementos.checked==false) alert("Debe seleccionar un registro"); 
 				else
 				{
 					if(confirm("¿Esta seguro de eliminar el registro(s)?")) eliminar(pag,opcion); 	
@@ -58,7 +58,7 @@ function eliminar_registro(pag,opcion)
 			{
 				if(elementos[i].checked==false) f++;
 			}
-			if(f==elementos.length) alert("Debe seleccionar un registro");//divAlert("bnpSite","Debe seleccionar un registro",true,"");
+			if(f==elementos.length) alert("Debe seleccionar un registro");//divAlert("site","Debe seleccionar un registro",true,"");
 			else
 			{
 				if(confirm("¿Esta seguro de eliminar el registro(s)?")) eliminar(pag,opcion);		
@@ -105,7 +105,7 @@ AJAX
 		 //donde se mostrará lo resultados
 		 var  divResultado = document.getElementById('resultado');
 		 divResultado.innerHTML="<table border='0'><tr><td><img src='imagenes/loading.gif'/></td><td>Eliminando registro espere por favor...</td></tr></table>";
-		// divAlert("bnpSite","<table border='0'><tr><td><img src='imagenes/loading.gif'/></td><td>Eliminando registro espere por favor...</td></tr></table>",false,"");
+		// divAlert("site","<table border='0'><tr><td><img src='imagenes/loading.gif'/></td><td>Eliminando registro espere por favor...</td></tr></table>",false,"");
 		  mostrarCapa('resultado',300,30);
 		  //valores de los inputs			
 		  var elementos=document.getElementsByName('chk_item');
@@ -139,7 +139,7 @@ AJAX
 		  {
 			  if (ajax.readyState==4) 
 			  {
-				   //divAlert("bnpSite",ajax.responseText,true,"bnpsmnu.php");
+				   //divAlert("site",ajax.responseText,true,"mnu.php");
 			  //mostrar los nuevos registros en esta capa
 				divResultado.innerHTML = ajax.responseText;
 				mostrarCapa('resultado',300,30);
@@ -171,7 +171,7 @@ public function borrar($vBorrar)
 		{ 
 			if($palabras[$i] != "")
 			{
-				$query="delete from bnps_opciones where idopcmnu =".$palabras[$i]." "; 
+				$query="delete from opciones where idopcmnu =".$palabras[$i]." "; 
 				$this->eliminado=$this->ejec_query_store($query);
 			}
 		
