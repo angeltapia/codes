@@ -1,0 +1,184 @@
+HTML
+-----
+//principal
+<input type="checkbox" style="cursor:pointer" onclick="checks_marcados()" id="chk_todos" name="chk_todos">
+
+//hijos
+<input type="checkbox" style="cursor:pointer" value="5" id="chk_item" name="chk_item">
+<input type="checkbox" style="cursor:pointer" value="12" id="chk_item" name="chk_item">
+....
+
+JS
+----
+//en onclick del check total para marcar todos
+function checks_marcados()
+{
+	var elementos=document.getElementsByName('chk_item');
+	var todos = document.getElementById('chk_todos');
+	var tipo=typeof(elementos.length);
+	
+	if(todos.checked==true)
+	{	
+		if(tipo=='undefined') elementos.checked=true;
+		else
+		{
+			for(i=0;i<elementos.length;i++) elementos[i].checked=true;
+		}	
+	}
+	else
+	{
+		if(tipo=='undefined') elementos.checked=false;
+		else
+		{
+			for(i=0;i<elementos.length;i++) elementos[i].checked=false;
+		}
+	}
+}
+
+function eliminar_registro(pag,opcion)
+{
+	var elementos=document.getElementsByName('chk_item');
+	var tipo=typeof(elementos.length);
+	var f=0;
+ 	
+		if(tipo=='undefined')
+		{
+			for(i=0;i<1;i++)
+			{
+				if(elementos.checked==false) alert("Debe seleccionar un registro"); //divAlert("bnpSite",,true,"");
+				else
+				{
+					if(confirm("¿Esta seguro de eliminar el registro(s)?")) eliminar(pag,opcion); 	
+				}
+			}
+		}
+		else
+		{
+			for(i=0;i<elementos.length;i++)
+			{
+				if(elementos[i].checked==false) f++;
+			}
+			if(f==elementos.length) alert("Debe seleccionar un registro");//divAlert("bnpSite","Debe seleccionar un registro",true,"");
+			else
+			{
+				if(confirm("¿Esta seguro de eliminar el registro(s)?")) eliminar(pag,opcion);		
+			}
+		}
+		
+}
+
+
+AJAX
+----
+ var http_request = false;
+
+    function objetoAjax() {
+
+        http_request = false;
+
+        if (window.XMLHttpRequest) { // Mozilla, Safari,...
+            http_request = new XMLHttpRequest();
+            if (http_request.overrideMimeType) {
+                http_request.overrideMimeType('text/xml');
+                // Ver nota sobre esta linea al final
+            }
+        } else if (window.ActiveXObject) { // IE
+            try {
+                http_request = new ActiveXObject("Msxml2.XMLHTTP");
+            } catch (e) {
+                try {
+                    http_request = new ActiveXObject("Microsoft.XMLHTTP");
+                } catch (e) {}
+            }
+        }
+
+        if (!http_request) {
+            alert('Falla :( No es posible crear una instancia XMLHTTP');
+            return false;
+        }
+		return http_request;
+
+    }
+
+	function eliminar(pagina,opc)
+	{
+		 //donde se mostrará lo resultados
+		 var  divResultado = document.getElementById('resultado');
+		 divResultado.innerHTML="<table border='0'><tr><td><img src='imagenes/loading.gif'/></td><td>Eliminando registro espere por favor...</td></tr></table>";
+		// divAlert("bnpSite","<table border='0'><tr><td><img src='imagenes/loading.gif'/></td><td>Eliminando registro espere por favor...</td></tr></table>",false,"");
+		  mostrarCapa('resultado',300,30);
+		  //valores de los inputs			
+		  var elementos=document.getElementsByName('chk_item');
+		  var tipo=typeof(elementos.length);
+		  var chk_item = new Array();
+		  if(tipo=='undefined')
+		  {
+			for(i=0;i<1;i++)
+			{
+			  if(elementos.checked==true)
+				chk_item[i] = elementos.value;
+			}
+		  }
+		  else
+		  {
+		    for(i=0;i<elementos.length;i++)
+		    {
+			  if(elementos[i].checked==true)
+				chk_item[i] =elementos[i].value;
+		    }
+		  }
+
+
+		  var opcion=opc;
+		  //instanciamos el objetoAjax
+		  var ajax=objetoAjax();
+		  //usando del medoto POST
+		  ajax.open("POST", pagina,true);
+		
+		  ajax.onreadystatechange=function() 
+		  {
+			  if (ajax.readyState==4) 
+			  {
+				   //divAlert("bnpSite",ajax.responseText,true,"bnpsmnu.php");
+			  //mostrar los nuevos registros en esta capa
+				divResultado.innerHTML = ajax.responseText;
+				mostrarCapa('resultado',300,30);
+				setTimeout("history.go(0)",3000);
+			  }
+		  }
+		  //muy importante este encabezado ya que hacemos uso de un formulario
+		  ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+		  //enviando los valores
+		  ajax.send("opcion="+opcion+"&chk_item="+chk_item);
+	}
+
+
+
+SERVER
+------
+
+//control
+$chk_item=$_POST['chk_item'];
+	$eliminado=$opciones->borrar($chk_item);
+
+//procesa
+
+public function borrar($vBorrar)
+	{	
+		
+		$palabras=split(",",$vBorrar); 
+		for($i=0;$i<count($palabras);$i++)
+		{ 
+			if($palabras[$i] != "")
+			{
+				$query="delete from bnps_opciones where idopcmnu =".$palabras[$i]." "; 
+				$this->eliminado=$this->ejec_query_store($query);
+			}
+		
+		}  
+		return $this->eliminado;
+	}
+
+
+
+
