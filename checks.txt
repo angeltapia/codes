@@ -180,6 +180,5 @@ public function borrar($vBorrar)
 		return $this->eliminado;
 	}
 
-return $this->eliminados;
 
 
