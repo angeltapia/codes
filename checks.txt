@@ -1,6 +1,6 @@
 HTML
 -----
-//codigo para pruebas y demos44445555555
+//codigo para pruebas y demos
 //principal
 <input type="checkbox" style="cursor:pointer" onclick="checks_marcados()" id="chk_todos" name="chk_todos">
 
