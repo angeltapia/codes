@@ -1,5 +1,6 @@
 HTML
 -----
+//codigo para pruebas
 //principal
 <input type="checkbox" style="cursor:pointer" onclick="checks_marcados()" id="chk_todos" name="chk_todos">
 
@@ -48,7 +49,7 @@ function eliminar_registro(pag,opcion)
 				if(elementos.checked==false) alert("Debe seleccionar un registro"); 
 				else
 				{
-					if(confirm("¿Esta seguro de eliminar el registro(s)?")) eliminar(pag,opcion); 	
+					if(confirm("Â¿Esta seguro de eliminar el registro(s)?")) eliminar(pag,opcion); 	
 				}
 			}
 		}
@@ -61,7 +62,7 @@ function eliminar_registro(pag,opcion)
 			if(f==elementos.length) alert("Debe seleccionar un registro");//divAlert("site","Debe seleccionar un registro",true,"");
 			else
 			{
-				if(confirm("¿Esta seguro de eliminar el registro(s)?")) eliminar(pag,opcion);		
+				if(confirm("Â¿Esta seguro de eliminar el registro(s)?")) eliminar(pag,opcion);		
 			}
 		}
 		
@@ -102,7 +103,7 @@ AJAX
 
 	function eliminar(pagina,opc)
 	{
-		 //donde se mostrará lo resultados
+		 //donde se mostrarÃ¡ lo resultados
 		 var  divResultado = document.getElementById('resultado');
 		 divResultado.innerHTML="<table border='0'><tr><td><img src='imagenes/loading.gif'/></td><td>Eliminando registro espere por favor...</td></tr></table>";
 		// divAlert("site","<table border='0'><tr><td><img src='imagenes/loading.gif'/></td><td>Eliminando registro espere por favor...</td></tr></table>",false,"");
