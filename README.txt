@@ -1,1 +1,1 @@
-Repo sobre mis codes
+Repo sobre mis codes y trucos
