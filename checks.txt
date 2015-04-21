@@ -1,6 +1,6 @@
 HTML
 -----
-//codigo para pruebas22
+//codigo para pruebas2233
 //principal
 <input type="checkbox" style="cursor:pointer" onclick="checks_marcados()" id="chk_todos" name="chk_todos">
 
