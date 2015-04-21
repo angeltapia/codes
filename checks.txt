@@ -10,7 +10,7 @@ HTML
 ....
 
 JS
-----
+-----
 //en onclick del check total para marcar todos
 function checks_marcados()
 {
