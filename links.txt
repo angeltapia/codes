@@ -3,3 +3,7 @@ http://www.javascriptkit.com/script/script2/soundlink.shtml#current
 appinventor para crear apps android
 yandex 15.4 del 30/04/15
 compilacion 3608
+
+descomprime css
+http://www.codebeautifier.com/
+
