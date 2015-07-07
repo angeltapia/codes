@@ -7,3 +7,21 @@ compilacion 3608
 descomprime css
 http://www.codebeautifier.com/
 
+http://www.cyberciti.biz/faq/howto-install-ntp-to-synchronize-server-clock/
+http://www.cyberciti.biz/faq/rhel-fedora-centos-configure-ntp-client-server/
+https://www.youtube.com/watch?v=QmE1kHdteBw
+
+rpm -q ntp ntpdate
+
+yum install -y ntp ntpdate
+
+/etc/ntp.conf
+
+/etc/sysconfig/iptables
+
+A INPUT -p udp -m state --state NEW -m udp --dport 123 -j ACCEPT
+
+hwclock --set --date="2015-01-01 12:12"
+date --set "2015-01-01 12:12"
+
+service iptables restart
