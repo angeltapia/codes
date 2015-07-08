@@ -11,6 +11,10 @@ http://www.cyberciti.biz/faq/howto-install-ntp-to-synchronize-server-clock/
 http://www.cyberciti.biz/faq/rhel-fedora-centos-configure-ntp-client-server/
 https://www.youtube.com/watch?v=QmE1kHdteBw
 
+http://opensourcebolivia.com/osb/2013/04/19/configurar-servidor-de-tiempo-en-centos-6/
+http://www.enlinux.org/servidor-ntp-network-time-protocol-en-gnulinux-centos-rhel-fedora-server-sl/
+http://hechoenmexicob2b.com/uploadedimages/SOMBREROS%20PLIEGO.pdf
+
 rpm -q ntp ntpdate
 
 yum install -y ntp ntpdate
