@@ -29,3 +29,12 @@ hwclock --set --date="2015-01-01 12:12"
 date --set "2015-01-01 12:12"
 
 service iptables restart
+
+service ntpd start
+ntpq -p
+
+ntpdc -n
+>dmp
+
+
+
