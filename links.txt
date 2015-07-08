@@ -40,3 +40,6 @@ ntpdc -n
 
 
 
+system-config-date
+
+
