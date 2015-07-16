@@ -10,6 +10,8 @@ http://www.codebeautifier.com/
 http://www.cyberciti.biz/faq/howto-install-ntp-to-synchronize-server-clock/
 http://www.cyberciti.biz/faq/rhel-fedora-centos-configure-ntp-client-server/
 https://www.youtube.com/watch?v=QmE1kHdteBw
+https://www.youtube.com/watch?v=g0F9TXNoFy4
+https://www.youtube.com/watch?v=wPUm5wcW2oE
 
 http://opensourcebolivia.com/osb/2013/04/19/configurar-servidor-de-tiempo-en-centos-6/
 http://www.enlinux.org/servidor-ntp-network-time-protocol-en-gnulinux-centos-rhel-fedora-server-sl/
