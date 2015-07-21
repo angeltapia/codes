@@ -7,3 +7,143 @@ compilacion 3608
 descomprime css
 http://www.codebeautifier.com/
 
+http://www.cyberciti.biz/faq/howto-install-ntp-to-synchronize-server-clock/
+http://www.cyberciti.biz/faq/rhel-fedora-centos-configure-ntp-client-server/
+https://www.youtube.com/watch?v=QmE1kHdteBw
+https://www.youtube.com/watch?v=g0F9TXNoFy4
+https://www.youtube.com/watch?v=wPUm5wcW2oE
+
+http://opensourcebolivia.com/osb/2013/04/19/configurar-servidor-de-tiempo-en-centos-6/
+http://www.enlinux.org/servidor-ntp-network-time-protocol-en-gnulinux-centos-rhel-fedora-server-sl/
+http://hechoenmexicob2b.com/uploadedimages/SOMBREROS%20PLIEGO.pdf
+
+rpm -q ntp ntpdate
+
+yum install -y ntp ntpdate
+
+/etc/ntp.conf
+
+/etc/sysconfig/iptables
+
+A INPUT -p udp -m state --state NEW -m udp --dport 123 -j ACCEPT
+
+service ntpd status
+
+hwclock --set --date="2015-01-01 12:12"
+date --set "2015-01-01 12:12"
+
+service iptables restart
+
+service ntpd start
+ntpq -p
+
+ntpdc -n
+>dmp
+
+
+//modo grafico
+system-config-date
+
+
+
+CENTOS 5.7
+
+ntpdate -b 192.168.0.24
+ntpdate 0.id.pool.ntp.org
+/etc/init.d/ntpd start
+ntpdate -u 192.168.0.24
+--no server suit....
+#sincronizar con win
+ntpdate -u 192.168.0.24
+--adjust time server....
+ntpq -p
+
+
+NTP.CONF
+
+# Permit time synchronization with our time source, but do not
+# permit the source to query or modify the service on this system.
+restrict default kod nomodify notrap nopeer noquery
+restrict -6 default kod nomodify notrap nopeer noquery
+
+# Permit all access over the loopback interface.  This could
+# be tightened as well, but to do so would effect some of
+# the administrative functions.
+restrict 127.0.0.1
+restrict -6 ::1
+
+# Hosts on local network are less restricted.
+#restrict 192.168.1.0 mask 255.255.255.0 nomodify notrap
+
+# Use public servers from the pool.ntp.org project.
+# Please consider joining the pool (http://www.pool.ntp.org/join.html).
+server 127.127.1.0
+
+#broadcast 192.168.1.255 key 42         # broadcast server
+#broadcastclient                        # broadcast client
+#broadcast 224.0.1.1 key 42             # multicast server
+#multicastclient 224.0.1.1              # multicast client
+#manycastserver 239.255.254.254         # manycast server
+#manycastclient 239.255.254.254 key 42  # manycast client
+
+# Undisciplined Local Clock. This is a fake driver intended for backup
+# and when no outside source of synchronized time is available.
+#server 127.127.1.0
+# local clock
+#fudge  127.127.1.0 stratum 10
+
+# Drift file.  Put this in a directory which the daemon can write to.
+# No symbolic links allowed, either, since the daemon updates the file
+# by creating a temporary in the same directory and then rename()'ing
+# it to the file.
+driftfile /var/lib/ntp/drift
+
+# Key file containing the keys and key identifiers used when operating
+# with symmetric key cryptography.
+
+# Specify the key identifiers which are trusted.
+#trustedkey 4 8 42
+
+# Specify the key identifier to use with the ntpdc utility.
+#requestkey 8
+
+# Specify the key identifier to use with the ntpq utility.
+#controlkey 8
+
+
+FIREWALL
+
+# Firewall configuration written by system-config-securitylevel
+# Manual customization of this file is not recommended.
+*filter
+:INPUT ACCEPT [0:0]
+:FORWARD ACCEPT [0:0]
+:OUTPUT ACCEPT [0:0]
+:RH-Firewall-1-INPUT - [0:0]
+-A INPUT -j RH-Firewall-1-INPUT
+-A FORWARD -j RH-Firewall-1-INPUT
+-A RH-Firewall-1-INPUT -i lo -j ACCEPT
+-A RH-Firewall-1-INPUT -p icmp --icmp-type any -j ACCEPT
+-A RH-Firewall-1-INPUT -p 50 -j ACCEPT
+-A RH-Firewall-1-INPUT -p 51 -j ACCEPT
+-A RH-Firewall-1-INPUT -p udp --dport 5353 -d 224.0.0.251 -j ACCEPT
+-A RH-Firewall-1-INPUT -p udp -m udp --dport 631 -j ACCEPT
+-A RH-Firewall-1-INPUT -p tcp -m tcp --dport 631 -j ACCEPT
+-A RH-Firewall-1-INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j ACCEPT
+-A RH-Firewall-1-INPUT -p udp -m state --state NEW -m udp --dport 123 -j ACCEPT
+-A RH-Firewall-1-INPUT -j REJECT --reject-with icmp-host-prohibited
+COMMIT
+
+
+
+
+
+
+
+
+
+
+
+
+
