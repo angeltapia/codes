@@ -19,9 +19,12 @@
   </head>
   <body>
     <h1>Hello, world!</h1>
+<form action="ficheroExcel.php" method="post" target="_blank" id="FormularioExportacion">
+<p>Exportar a Excel  <img src="export_to_excel.gif" class="botonExcel" /></p>
+<input type="hidden" id="datos_a_enviar" name="datos_a_enviar" />
+</form>
 
-
-    <table class="table table-bordered overflow-y">
+    <table id="Exportar_a_Excel" border="1" class="table table-bordered overflow-y">
       <thead>
         <tr>
           <th>#</th>
@@ -54,8 +57,8 @@
         <tr>
           <th scope="row">1</th>
           <th scope="row">M04-NOV13ESP</th>
-          <th scope="row">GESTION DE METALES PESADOS</th>
-          <th scope="row">RUBEN ANGEL YNOCENTE TAPIA</th>
+          <th scope="row">GESTIÓN DE METALES PESADOS</th>
+          <th scope="row">RUBÉN ANGEL YNOCENTE TAPIA</th>
           <td>15</td>
           <td>15</td>
           <td>15</td>
@@ -141,6 +144,18 @@
 
     <script src="stick/js/jquery.ba-throttle-debounce.min.js"></script>
     <script src="stick/js/jquery.stickyheader.js"></script>
+
+  <script type="text/javascript">
+
+  $(document).ready(function() {
+  $(".botonExcel").click(function(event) {
+    $("#datos_a_enviar").val( $("<div>").append( $("#Exportar_a_Excel").eq(0).clone()).html());
+    $("#FormularioExportacion").submit();
+});
+});
+
+  </script>
+
 
 <link rel="stylesheet" type="text/css" href="stick/css/demo.css" />
     <link rel="stylesheet" type="text/css" href="stick/css/component.css" />
