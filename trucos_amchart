@@ -1,0 +1,5 @@
+In case you have a lot of graphs in one chart, and use ChartCursor with value balloons enabled, showing a separate balloon for each graph might not work. So you have two options:
+
+#1 Show only one balloon, of the most close graph to the mouse cursor. This can be done by setting chartCursor.oneBalloonOnly = true;
+
+#2 Show all the values and other information required in one balloon only. This can be achieved by simply disabling balloons of all graphs by setting graph.showBalloon = false; except one, and making the balloon of this graph to display values of all graphs. As balloon text can display any data field from your data provider, you should simply use original field names placed within double brackets, like this: graph.balloonText = “graph1:[[value1]]<br>graph2:[[value2]]<br>graph3:[[value3]]”; HTML tags will help you to format the balloon text in any way you want.
