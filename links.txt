@@ -1,3 +1,5 @@
+pear install phpdoc/phpDocumentor-2.8.1
+
 pear - phpdoc
 https://www.youtube.com/watch?v=RTZXp4EU3wk
 
