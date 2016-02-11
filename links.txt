@@ -1,3 +1,10 @@
+cron
+http://www.forosdelweb.com/f19/sobre-cron-jobs-cpanel-320770/
+
+Si tu pagina PHP esta en una carpeta tienes que colocar toda la ruta:
+/usr/local/bin/php -q -f /home/user/public_html/ruta_del_archivo/pagina.php
+
+
 http://www.javascriptkit.com/script/script2/soundlink.shtml#current
 
 appinventor para crear apps android
