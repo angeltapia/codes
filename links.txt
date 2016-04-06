@@ -1,3 +1,7 @@
+htaccess
+http://php-estudios.blogspot.pe/2013/02/configurar-el-archivo-htaccess-de-apache.html
+
+
 pear install phpdoc/phpDocumentor-2.8.1
 
 pear - phpdoc
