@@ -1,3 +1,8 @@
+http://thecodeplayer.com/walkthrough/canvas-fireworks-tutorial
+http://redeando.blogspot.pe/2013/03/canvas-fireworks-html5.html
+http://creativejs.com/tutorials/creating-fireworks/
+
+
 HTML
 -----
 //codigo para pruebas y demos
