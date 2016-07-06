@@ -8,5 +8,11 @@ https://www.google.com.pe/imgres?imgurl=http%3A%2F%2Fwww.modern-notoriety.com%2F
 
 http://es.vecteezy.com/vectores-gratis/phone?page=3
 
+http://tympanus.net/codrops/2012/12/04/responsive-touch-friendly-audio-player/
+
+http://www.flaticon.com/free-icon/phone-call_46854
+
+https://platzi.com/blog/local-storage-html5/
+
 #FFFE04
 
