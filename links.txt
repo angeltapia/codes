@@ -1,3 +1,5 @@
+https://www.voipelia.com/como-configurar-websocket-en-asterisk/
+
 https://github.com/versatica/JsSIP
 https://www.youtube.com/watch?v=006YInl2f2w
 
