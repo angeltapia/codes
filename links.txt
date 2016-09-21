@@ -1,3 +1,5 @@
+https://level7systems.co.uk/click_to_call_with_php_sip/
+
 https://www.voipelia.com/como-configurar-websocket-en-asterisk/
 
 https://github.com/versatica/JsSIP
