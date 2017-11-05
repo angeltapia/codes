@@ -1,0 +1,21 @@
+/* VIRTUALHOST en opt/lammp/etc/extra/httpd-vhosts.conf  */
+
+<virtualhost *:80>
+ServerName local.misgastos.pe
+ServerAlias loca.misgastos.pe
+DocumentRoot "/opt/lampp/htdocs/misgastos/"
+<directory "/opt/lampp/htdocs/misgastos/">
+DirectoryIndex index.php
+AllowOverride All
+Order allow,deny
+Allow from all
+</directory>
+</virtualhost>
+
+
+/* host /etc/host */
+
+127.0.0.1	localhost
+127.0.1.1	angelMint
+127.0.0.1	local.zendt.pe
+
